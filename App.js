@@ -9,10 +9,11 @@ export default function App() {
     <TailwindProvider>
    <NavigationContainer>
       <Stack.Navigator>
+      <Stack.Screen name="register" component={Register} options={{headerShown:false}} />
        <Stack.Screen name="splascreen" component={SplashScreen}  options={{headerShown:false}}/>
         <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} options={{headerShown:false}} />
         <Stack.Screen name="login" component={Login} options={{headerShown:false}} />
-        <Stack.Screen name="register" component={Register} options={{headerShown:false}} />
+     
         <Stack.Screen name="Home" component={Home}  options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
