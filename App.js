@@ -2,7 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { TailwindProvider } from "tailwindcss-react-native";
-import { Home, OnboardingScreen, SplashScreen } from "./screens";
+import { Home, OnboardingScreen, SplashScreen,Login,Register } from "./screens";
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
@@ -11,6 +11,8 @@ export default function App() {
       <Stack.Navigator>
        <Stack.Screen name="splascreen" component={SplashScreen}  options={{headerShown:false}}/>
         <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} options={{headerShown:false}} />
+        <Stack.Screen name="login" component={Login} options={{headerShown:false}} />
+        <Stack.Screen name="register" component={Register} options={{headerShown:false}} />
         <Stack.Screen name="Home" component={Home}  options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>

@@ -38,8 +38,8 @@ const OnboardingScreen = () => {
   };
   return (
     <Onboarding
-    onSkip={() => navigation.replace("Home")}
-    onDone={() => navigation.replace("Home")}
+    onSkip={() => navigation.replace("login")}
+    onDone={() => navigation.replace("login")}
     DotComponent={DotComponent}
     nextLabel={"suivant"}
     skipLabel={"passer"}
