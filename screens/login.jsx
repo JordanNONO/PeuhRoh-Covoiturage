@@ -21,8 +21,8 @@ const LoginScreen = (props) => {
   
     
     <View style={styles.container}>
-      <View>
-      <Image source={require('../assets/images/moto.png')} style={{}}/>
+      <View style={{backgroundColor:"white"}}>
+      <Image source={require('../assets/images/t.gif')} style={{width:300,height:300}}/>
       <Text className="text-2xl" style={{fontFamily:'poppin-bold' ,paddingBottom:10,textAlign:"center",color:"#722df0"}}>Se connecter</Text>
       </View>
       <View style={styles.inputContainer}>

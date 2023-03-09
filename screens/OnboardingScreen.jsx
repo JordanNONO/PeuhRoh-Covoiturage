@@ -46,13 +46,13 @@ const OnboardingScreen = () => {
      pages={[
     {
       backgroundColor: '#fff',
-      image: <Image source={require('../assets/images/moto.png')} />,
+      image: <Image source={require('../assets/images/car.gif')} style={{width:450,height:300}} />,
       title: <Text className="text-2xl" style={{fontFamily:'poppin-bold'}}>Trouvez le trajet ideal</Text>,
       subtitle: <Text style={{fontFamily:'poppin-light'}}>Done with React Native Onboarding Swiper</Text>,
     },
     {
       backgroundColor: '#fff',
-      image: <Image source={require('../assets/images/moto2.png')} />,
+      image: <Image source={require('../assets/images/car2.gif')} style={{width:400,height:300}}/>,
       title: <Text className="text-2xl" style={{fontFamily:'poppin-bold'}}>Voyage rapide</Text> ,
       subtitle: <Text style={{fontFamily:'poppin-light'}}>Done with React Native Onboarding Swiper</Text>,
     },

@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet ,Image,Text,Button,TouchableOpacity} from 'react-native';
-import { Entypo } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { useFonts } from 'expo-font';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import LottieView from "lottie-react-native";
 import AppLoading from 'expo-app-loading';
-const LoginScreen = (props) => {
-  const [username, setUsername] = useState('');
+const Register = (props) => {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
- 
+
+  const handleLogin = () => {
+    
+   
   let [fontLaoded] =useFonts({
     'poppin-bold':require('../assets/font/Poppins-Bold.ttf'),
     'poppin-light':require('../assets/font/Poppins-Light.ttf'),
@@ -17,86 +18,70 @@ const LoginScreen = (props) => {
   if(!fontLaoded){
     return <AppLoading/>
   }
+  }
+  
+
   return (
-  
-    
     <View style={styles.container}>
-      <View>
-      <Image source={require('../assets/images/login1.png')} style={{width:200,height:150}}/>
-      <Text className="text-2xl" style={{fontFamily:'poppin-bold' ,paddingBottom:10,textAlign:"center",color:"#722df0"}}>crée un compte</Text>
-      </View>
-      <View style={styles.inputContainer}>
-       
-        <FontAwesome name="user" size={20} style={styles.icon} />
-       
-        <TextInput
-          style={styles.input}
-          placeholder="Nom"
-         
+        <View style={styles.animationContainer}>
+      
+      <LottieView
+        ref={animation => {
+          this.animation = animation;
+         // this.animation.play();
+      
+        }}
+        style={{
+          width: 400,
+          height: 200,
+          backgroundColor: '#F9F9F9',
+        }}
+        source={{uri:'https://assets5.lottiefiles.com/packages/lf20_nk5g0wbx.json'}}
+        
+      />
   
-        />
-      </View>
-      <View style={styles.inputContainer}>
-       
-       <FontAwesome name="user" size={20} style={styles.icon} />
-      
-       <TextInput
-         style={styles.input}
-         placeholder="prenom"
-       
-   
-       />
-     </View>
-     <View style={styles.inputContainer}>
-       
-    
-       <Entypo name="email" size={20} style={styles.icon} />
-      
-       <TextInput
-         style={styles.input}
-        placeholder="Adress mail"
+    </View>
+      <Text style={styles.title}>S'inscrire</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Nom"
    
     
-       />
-     </View>
-      <View style={styles.inputContainer}>
-
-       
-        <MaterialCommunityIcons name="form-textbox-password" size={20} style={styles.icon} />
+      />
         <TextInput
-          style={styles.input}
-          placeholder="Mot de passe"
-          secureTextEntry
-          value={password}
-          onChangeText={setPassword}
-        />
-      
-      </View>
-      <View style={styles.inputContainer}>
+        style={styles.input}
+        placeholder="Prenom"
+        onChangeText={setEmail}
+        value={email}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Adresse e-mail"
 
- 
-      <MaterialCommunityIcons name="form-textbox-password" size={20} style={styles.icon} />
-<TextInput
-  style={styles.input}
-  placeholder="confirmé le meot de passe"
-  secureTextEntry
-  value={password}
-  onChangeText={setPassword}
-/>
-
-</View>
-      <View style={{}}>
-            <TouchableOpacity style={styles.LoginBtn}  onPress={()=>{
-    props.navigation.navigate("register");
-          }}>
-              <Text style={styles.loginBtnLbl}>Enregister</Text>
-            </TouchableOpacity>
-          </View>
-          <TouchableOpacity
+     
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Mot de passe"
+        secureTextEntry
+        onChangeText={setPassword}
+        value={password}
+      />
+        <TextInput
+        style={styles.input}
+        placeholder="Confirmé le mot de passe"
+        secureTextEntry
+        onChangeText={setPassword}
+        value={password}
+      />
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <Text style={styles.buttonText}>Enregistrer</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
            style={{padding:10}}  >
               <Text style={styles.registerLbl}  onPress={()=>{
     props.navigation.navigate("login");
-          }}>se connecter</Text>
+          }}>Se connecter ?</Text>
             </TouchableOpacity>
     </View>
   );
@@ -105,65 +90,46 @@ const LoginScreen = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    paddingTop:-20,
-    margin:20,
-  
+    justifyContent: 'center',
+    backgroundColor: '#F9F9F9',
   },
   registerLbl: {color: '#722df0',
-     fontFamily:'poppin-semibold'
+  fontFamily:'poppin-semibold'
 },
-  LoginBtn: {
-    justifyContent:'center',
-    backgroundColor: '#722df0',
-    borderRadius: 10,
+animationContainer: {
+  backgroundColor: "#fff",
 
-width:300,
-marginLeft:20
-  },
-  loginBtnLbl: {
-    textAlign: 'center',
-    fontSize: 16,
-    fontFamily:'poppin-bold',
 
- 
-    color: '#fff',
-    paddingVertical: 10,
+},
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    marginBottom: 32,
+    fontFamily:'poppin-bold' ,color:"#722df0"
   },
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
-    paddingBottom:20
-   
-  },
-  icon: {
-    marginRight: 10,
-  
-  },
-  ButtonStyle:{
-    padding:14,
-    backgroundColor:"#e3E3E3",
-     flex:1,
-    justifyContent:"center",
-    alignItems:"center",
-    borderRadius:30,
-    margin:6,
-    fontFamily:'poppin-bold',
-  
-    
-   },
   input: {
-    flex: 1,
-    height: 50,
-    borderColor: '#722df0',
+    width: '80%',
+    height: 48,
     borderWidth: 1,
-    paddingLeft: 10,
-    borderRadius:7,
-  
- 
+    borderColor: '#722df0',
+    borderRadius: 6,
+    paddingHorizontal: 16,
+    marginBottom: 16,
+  },
+  button: {
+    backgroundColor: '#722df0',
+    borderRadius: 6,
+    width: '80%',
+    height: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    fontSize: 18,
   },
 });
 
-export default LoginScreen;
+export default Register;
