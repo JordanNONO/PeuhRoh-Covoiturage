@@ -4,15 +4,18 @@ import { View,
   FlatList,
   TouchableOpacity,
   TextInput,
-  Button
+  Button,
+ DatePickerIOSBase
 
 } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS, PADDING } from '../componens/constante';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import React from 'react'
+import NumericInput from 'react-native-numeric-input'
 import { FakeActivity } from './FakeActivity';
-
+import { FontAwesome5 } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
@@ -69,23 +72,33 @@ const Home = () => {
   
        </View>
        <View style={styles.card}>
+       <View style={styles.Trajet}>
+ 
+       <FontAwesome5 name="genderless" size={40} color="#0d70ac" style={styles.icon}/>
       <TextInput
-        style={styles.input}
+        style={styles.inputTrajet}
         placeholder="ville de depart"
+       
+      />
+    </View>
+    <View style={styles.Trajet}>
+
+       <MaterialCommunityIcons name="clock-start" size={30} color="#df1230" style={styles.icon}/>
+      <TextInput
+        style={styles.inputTrajet}
+        placeholder="ville de depart"
+       
+      />
      
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Ville d'arrivé"
+    </View>
+    <View style={styles.Trajet}>
+    <MaterialCommunityIcons name="seat-passenger" size={30} color="#7b1cb1" style={styles.icon} />
+    <Text>nombre de passager </Text>
+<NumericInput type='up-down' onChange={value => console.log(value)} 
 
+ />
 
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Heur de depart"
-
-      
-      />
+</View>
        <TouchableOpacity style={styles.button} onPress={()=>{
     props.navigation.navigate("Home");
           }}>
@@ -99,6 +112,26 @@ const Home = () => {
 
 export default Home
 const styles = StyleSheet.create({
+  Trajet:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 8,
+    borderColor: 'gray',
+    marginHorizontal: 20,
+    marginVertical: 15,
+    paddingHorizontal: 10,
+  },
+  inputTrajet:{
+    flex: 1,
+    height: 40,
+    fontSize: 16,  
+ marginLeft:5,
+ 
+  },
+  icon:{
+    marginRight: 10,
+  },
   card: {
     backgroundColor: '#fff',
     padding: 20,
@@ -113,15 +146,17 @@ const styles = StyleSheet.create({
   input: {
     marginBottom: 10,
     borderWidth: 1,
-    borderColor: '#ccc',
+   
     borderRadius: 5,
     padding: 8,
   },
   button: {
     backgroundColor:COLORS.main,
     borderRadius: 6,
-    width: '100%',
+    width: '88%',
     height: 48,
+    marginLeft:25,
+
     alignItems: 'center',
     justifyContent: 'center',
   },
