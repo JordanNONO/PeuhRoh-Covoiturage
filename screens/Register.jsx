@@ -74,7 +74,9 @@ const Register = (props) => {
         onChangeText={setPassword}
         value={password}
       />
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+      <TouchableOpacity style={styles.button} onPress={()=>{
+    props.navigation.navigate("Home");
+          }}>
         <Text style={styles.buttonText}>Enregistrer</Text>
       </TouchableOpacity>
       <TouchableOpacity

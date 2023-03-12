@@ -85,7 +85,11 @@ export default function App() {
   
       <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} options={{headerShown:false}} />
       <Stack.Screen name="login" component={Login} options={{headerShown:true}} />
-      <Stack.Screen name="Home" component={ MyButtonTabs}  options={{headerShown:false}}/>
+      <Stack.Screen name="Home" component={ MyButtonTabs}  options={{headerShown:false, headerTitleAlign:"center",headerTitle:""}
+       
+      }
+
+      />
 
       <Stack.Screen name="register" component={Register} options={{headerShown:true}} />
     
