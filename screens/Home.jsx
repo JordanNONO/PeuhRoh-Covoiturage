@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   button: {
-    backgroundColor: '#722df0',
+    backgroundColor:COLORS.main,
     borderRadius: 6,
     width: '100%',
     height: 48,
@@ -207,7 +207,7 @@ backgroundColor:"white",
      maintext:{
       fontSize:14,
       fontWeight:"blod",
-      color:"#722df0",
+     color:COLORS.orange,
       textAlign:'center',
       fontFamily:'poppin-bold'
 
@@ -236,7 +236,7 @@ backgroundColor:"white",
      titre:{
      
          
-      color:"grey",
+      color:COLORS.orange,
       textAlign:'center',
       fontFamily:'poppin-semibold'
      },

@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, TextInput, StyleSheet ,Image,Text,Button,TouchableOpacity} from 'react-native';
+import { Entypo } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
-import LottieView from "lottie-react-native";
-import AppLoading from 'expo-app-loading';
-const Register = (props) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+import { COLORS, PADDING } from '../componens/constante';
 
-  const handleLogin = () => {
-    
-   
+import AppLoading from 'expo-app-loading';
+const LoginScreen = (props) => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+ 
   let [fontLaoded] =useFonts({
     'poppin-bold':require('../assets/font/Poppins-Bold.ttf'),
     'poppin-light':require('../assets/font/Poppins-Light.ttf'),
@@ -18,72 +18,71 @@ const Register = (props) => {
   if(!fontLaoded){
     return <AppLoading/>
   }
-  }
-  
-
   return (
-    <View style={styles.container}>
-        <View style={styles.animationContainer}>
-      
-      <LottieView
-        ref={animation => {
-          this.animation = animation;
-         // this.animation.play();
-      
-        }}
-        style={{
-          width: 400,
-          height: 200,
-          backgroundColor: '#F9F9F9',
-        }}
-        source={{uri:'https://assets5.lottiefiles.com/packages/lf20_nk5g0wbx.json'}}
-        
-      />
   
-    </View>
-      <Text style={styles.title}>S'inscrire</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Nom"
-   
     
-      />
-        <TextInput
-        style={styles.input}
-        placeholder="Prenom"
-        onChangeText={setEmail}
-        value={email}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Adresse e-mail"
+    <View style={styles.container}>
+      <View style={{}}>
+     <Text style={{fontFamily:'poppin-semibold',fontSize:25,paddingBottom:40,paddingTop:20,color:COLORS.orange}}>veuillez remplire vos information pour vous inscrire</Text>
 
-     
-      />
+  
+      </View>
+      <View style={styles.inputContainer}>
+      
+       
+        <TextInput
+          style={styles.input}
+          placeholder="Nom complet"
+    
+        />
+      </View>
+      <View style={styles.inputContainer}>
+      
+       
       <TextInput
         style={styles.input}
-        placeholder="Mot de passe"
-        secureTextEntry
-        onChangeText={setPassword}
-        value={password}
+        placeholder="Email"
+
       />
+    </View>
+
+      <View style={styles.inputContainer}>
+
+ 
         <TextInput
-        style={styles.input}
-        placeholder="Confirmé le mot de passe"
-        secureTextEntry
-        onChangeText={setPassword}
-        value={password}
-      />
-      <TouchableOpacity style={styles.button} onPress={()=>{
+          style={styles.input}
+          placeholder="Numero de telephone"
+         
+        />
+      
+      </View>
+ 
+      <View style={styles.inputContainer}>
+
+ 
+ <TextInput
+  style={styles.input}
+  placeholder="Mot de passe"
+  secureTextEntry
+  value={password}
+  onChangeText={setPassword}
+/>
+
+</View>
+
+      <View style={{}}>
+            <TouchableOpacity style={styles.LoginBtn}  onPress={()=>{
     props.navigation.navigate("Home");
           }}>
-        <Text style={styles.buttonText}>Enregistrer</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-           style={{padding:10}}  >
-              <Text style={styles.registerLbl}  onPress={()=>{
+              <Text style={styles.loginBtnLbl}>S'inscrire</Text>
+            </TouchableOpacity>
+          </View>
+     
+          <TouchableOpacity style={{flexDirection:'row' ,justifyContent:'space-around',paddingTop:20}}>
+          <Text  style={{fontFamily:'poppin-light'}}>vous avez deja un compte?&nbsp;&nbsp;</Text>
+              <Text style={{fontFamily:'poppin-semibold',color:COLORS.orange,paddingBottom:0}}  onPress={()=>{
     props.navigation.navigate("login");
-          }}>Se connecter ?</Text>
+          }}>Se connecter</Text>
             </TouchableOpacity>
     </View>
   );
@@ -91,47 +90,66 @@ const Register = (props) => {
 
 const styles = StyleSheet.create({
   container: {
+    flex:1,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F9F9F9',
+   
+    margin:20,
   },
   registerLbl: {color: '#722df0',
-  fontFamily:'poppin-semibold'
+     fontFamily:'poppin-semibold'
 },
-animationContainer: {
-  backgroundColor: "#fff",
+  LoginBtn: {
+    justifyContent:'center',
+    backgroundColor:COLORS.main,
+    borderRadius: 10,
 
+width:360,
 
-},
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    marginBottom: 32,
-    fontFamily:'poppin-bold' ,color:"#722df0"
   },
-  input: {
-    width: '80%',
-    height: 48,
-    borderWidth: 1,
-    borderColor: '#722df0',
-    borderRadius: 6,
-    paddingHorizontal: 16,
-    marginBottom: 16,
+  loginBtnLbl: {
+    textAlign: 'center',
+    fontSize: 16,
+    fontFamily:'poppin-bold',
+
+ 
+    color: '#fff',
+    paddingVertical: 10,
   },
-  button: {
-    backgroundColor: '#722df0',
-    borderRadius: 6,
-    width: '80%',
-    height: 48,
+  inputContainer: {
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    marginBottom: 10,
+    paddingBottom:20
+   
   },
-  buttonText: {
-    color: '#FFFFFF',
-    fontWeight: 'bold',
-    fontSize: 18,
+  icon: {
+    marginRight: 10,
+  
+  },
+  ButtonStyle:{
+    padding:14,
+    backgroundColor:"#e3E3E3",
+     flex:1,
+    justifyContent:"center",
+    alignItems:"center",
+    borderRadius:30,
+    margin:6,
+    fontFamily:'poppin-bold',
+  
+    
+   },
+  input: {
+    flex: 1,
+    height: 50,
+  backgroundColor:COLORS.grey,
+
+    paddingLeft: 10,
+    borderRadius:7,
+  
+ 
   },
 });
 
-export default Register;
+export default LoginScreen;

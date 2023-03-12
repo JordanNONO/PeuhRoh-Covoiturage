@@ -84,14 +84,14 @@ export default function App() {
       <Stack.Screen name="splascreen" component={SplashScreen}  options={{headerShown:false}}/>
   
       <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} options={{headerShown:false}} />
-      <Stack.Screen name="login" component={Login} options={{headerShown:true}} />
+      <Stack.Screen name="login" component={Login} options={{headerShown:false}} />
       <Stack.Screen name="Home" component={ MyButtonTabs}  options={{headerShown:false, headerTitleAlign:"center",headerTitle:""}
        
       }
 
       />
 
-      <Stack.Screen name="register" component={Register} options={{headerShown:true}} />
+      <Stack.Screen name="register" component={Register} options={{headerShown:false}} />
     
   
  
@@ -102,4 +102,3 @@ export default function App() {
     </TailwindProvider>
   );
 }
-

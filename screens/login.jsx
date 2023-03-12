@@ -3,6 +3,7 @@ import { View, TextInput, StyleSheet ,Image,Text,Button,TouchableOpacity} from '
 import { Entypo } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
+import { COLORS, PADDING } from '../componens/constante';
 
 import AppLoading from 'expo-app-loading';
 const LoginScreen = (props) => {
@@ -21,13 +22,13 @@ const LoginScreen = (props) => {
   
     
     <View style={styles.container}>
-      <View style={{backgroundColor:"white"}}>
-      <Image source={require('../assets/images/t.gif')} style={{width:300,height:300}}/>
-      <Text className="text-2xl" style={{fontFamily:'poppin-bold' ,paddingBottom:10,textAlign:"center",color:"#722df0"}}>Se connecter</Text>
+      <View style={{}}>
+     <Text style={{fontFamily:'poppin-bold',fontSize:30,paddingTop:30}}>Salut ,</Text>
+      <Text style={{fontFamily:'poppin-bold',fontSize:30}}>Bon retour !</Text>
+      <Text style={{fontFamily:'poppin-light',fontSize:15,paddingBottom:90}}>veuille saisir votre adress email et votre mot de passe pour vous connecter!</Text>
       </View>
       <View style={styles.inputContainer}>
-       
-        <FontAwesome name="user" size={20} style={styles.icon} />
+      
        
         <TextInput
           style={styles.input}
@@ -38,7 +39,7 @@ const LoginScreen = (props) => {
       </View>
       <View style={styles.inputContainer}>
 
-        <Entypo name="lock"  size={20} style={styles.icon} />
+ 
         <TextInput
           style={styles.input}
           placeholder="Mot de passe"
@@ -48,6 +49,12 @@ const LoginScreen = (props) => {
         />
       
       </View>
+      <TouchableOpacity
+           style={{padding:10}}  >
+              <Text style={{textAlign:'right',fontFamily:'poppin-semibold',color:COLORS.orange,paddingBottom:0}}  onPress={()=>{
+    props.navigation.navigate("register");
+          }}>Mot de passe oublier</Text>
+            </TouchableOpacity>
       <View style={{}}>
             <TouchableOpacity style={styles.LoginBtn}  onPress={()=>{
     props.navigation.navigate("register");
@@ -55,11 +62,12 @@ const LoginScreen = (props) => {
               <Text style={styles.loginBtnLbl}>Se connecter</Text>
             </TouchableOpacity>
           </View>
-          <TouchableOpacity
-           style={{padding:10}}  >
-              <Text style={styles.registerLbl}  onPress={()=>{
+     
+          <TouchableOpacity style={{flexDirection:'row' ,justifyContent:'space-around',paddingTop:20}}>
+          <Text  style={{fontFamily:'poppin-light'}}>Vous n'avez pas de compte?</Text>
+              <Text style={{fontFamily:'poppin-semibold',color:COLORS.orange,paddingBottom:0}}  onPress={()=>{
     props.navigation.navigate("register");
-          }}>Creer un compte</Text>
+          }}>S'inscrire</Text>
             </TouchableOpacity>
     </View>
   );
@@ -67,10 +75,9 @@ const LoginScreen = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingTop:-20,
+    flex:1,
+
+
     margin:30
   },
   registerLbl: {color: '#722df0',
@@ -78,11 +85,11 @@ const styles = StyleSheet.create({
 },
   LoginBtn: {
     justifyContent:'center',
-    backgroundColor: '#722df0',
+    backgroundColor:COLORS.main,
     borderRadius: 10,
 
-width:300,
-marginLeft:20
+width:360,
+
   },
   loginBtnLbl: {
     textAlign: 'center',
@@ -119,8 +126,8 @@ marginLeft:20
   input: {
     flex: 1,
     height: 50,
-    borderColor: '#722df0',
-    borderWidth: 1,
+  backgroundColor:COLORS.grey,
+
     paddingLeft: 10,
     borderRadius:7,
   
