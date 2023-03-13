@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState ,} from 'react';
 import { View, TextInput, StyleSheet ,Image,Text,Button,TouchableOpacity} from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+
+
 import { useFonts } from 'expo-font';
 import { COLORS, PADDING } from '../componens/constante';
 
 import AppLoading from 'expo-app-loading';
 const LoginScreen = (props) => {
-  const [username, setUsername] = useState('');
+  const [userFullname, setUserFullname] = useState('');
+  const [email, setEmail]=useState('');
+  const [tel,setTel]=useState('');
   const [password, setPassword] = useState('');
  
   let [fontLaoded] =useFonts({
@@ -18,6 +22,9 @@ const LoginScreen = (props) => {
   if(!fontLaoded){
     return <AppLoading/>
   }
+
+
+
   return (
   
     
@@ -33,7 +40,8 @@ const LoginScreen = (props) => {
         <TextInput
           style={styles.input}
           placeholder="Nom complet"
-    
+          value={userFullname}
+          onChangeText={(userFullname)=>setUserFullname(userFullname)}
         />
       </View>
       <View style={styles.inputContainer}>
@@ -42,7 +50,8 @@ const LoginScreen = (props) => {
       <TextInput
         style={styles.input}
         placeholder="Email"
-
+        value={email}
+          onChangeText={(email)=>setEmail(email)}
       />
     </View>
 
@@ -52,7 +61,9 @@ const LoginScreen = (props) => {
         <TextInput
           style={styles.input}
           placeholder="Numero de telephone"
-         
+          value={tel}
+          onChangeText={(tel)=>setTel(tel)}
+     
         />
       
       </View>
@@ -65,7 +76,7 @@ const LoginScreen = (props) => {
   placeholder="Mot de passe"
   secureTextEntry
   value={password}
-  onChangeText={setPassword}
+  onChangeText={(password)=>setPassword(password)}
 />
 
 </View>
@@ -81,7 +92,7 @@ const LoginScreen = (props) => {
           <TouchableOpacity style={{flexDirection:'row' ,justifyContent:'space-around',paddingTop:20}}>
           <Text  style={{fontFamily:'poppin-light'}}>vous avez deja un compte?&nbsp;&nbsp;</Text>
               <Text style={{fontFamily:'poppin-semibold',color:COLORS.orange,paddingBottom:0}}  onPress={()=>{
-    props.navigation.navigate("login");
+    props.navigation.navigate("register");
           }}>Se connecter</Text>
             </TouchableOpacity>
     </View>

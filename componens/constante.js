@@ -4,7 +4,7 @@ export const COLORS={
     black:"#000",
     IconColor:"#eaebef",
     white: '#fff',
-  black: '#000',
+  green: '#04a640',
   blue: '#5D5FEE',
   grey: '#cecece',
   light: '#F3F4FB',

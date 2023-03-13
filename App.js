@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
  import { Ionicons } from '@expo/vector-icons';
  import { useFonts } from 'expo-font';
  import AppLoading from 'expo-app-loading';
+ import { COLORS, PADDING } from './componens/constante';
  import { FontAwesome5 } from '@expo/vector-icons';
  import { FontAwesome } from '@expo/vector-icons';
 import { TailwindProvider } from "tailwindcss-react-native";
@@ -23,29 +24,34 @@ export default function App() {
   }
   function MyButtonTabs(){
     return <BottonTabs.Navigator 
-   
-        options={{
-          color:'red'
-        }} 
-     
-     >
+    
+          tabBarOptions={{
+        activeTintColor:"red",
+         tabStyle:{
+          backgroundColor:COLORS.main
+          
+         }
+      }}>
    
         <BottonTabs.Screen name="Home" component={Home}  options={{ tabBarIcon:(props) =>
-        <Ionicons name="ios-home-sharp" size={24} color="black" />,
+      
+        <Ionicons name="ios-home-sharp" size={24} color="white" />,
           headerShown:false,
           tabBarLabelStyle:{
-          color:'black',
+            color:"white",
           fontSize:12,
         fontWeight:'bold'
         }
-        }} />
+        
+        }}  />
          
         
     
                 
-    <BottonTabs.Screen name="profile" component={Profile} options={{  tabBarIcon:(props)=><FontAwesome name="user-circle" size={24} color="black" />, 
+    <BottonTabs.Screen name="profile" component={Profile} options={{ headerShown:false, tabBarIcon:(props)=>
+    <FontAwesome name="user-circle" size={24} color="white" />, 
        tabBarLabelStyle:{
-        color:'black',
+        color:"white",
         fontFamily:'poppin-light',
         fontSize:12,
         fontWeight:'bold'
@@ -53,19 +59,19 @@ export default function App() {
     }}/>
 
     <BottonTabs.Screen name="parametre" component={parametre}   options={{  tabBarIcon:(props) =>
-    <Ionicons name="settings-sharp" size={24} color="black"/>,
+    <Ionicons name="settings-sharp" size={24} color="white"/>,
     tabBarLabelStyle:{
-        color:'black',
+      color:"white",
         fontFamily:'poppin-light',
         fontSize:12,
         fontWeight:'bold'
        }
     }} />
     <BottonTabs.Screen name="Trajet" component={Trajet}   options={{  tabBarIcon:(props) =>
-    <FontAwesome5 name="route" size={24} color="black" />,
+    <FontAwesome5 name="route" size={24} color="white" />,
     
     tabBarLabelStyle:{
-        color:'black',
+      color:"white",
         fontFamily:'poppin-light',
         fontSize:12,
         fontWeight:'bold'
@@ -81,17 +87,17 @@ export default function App() {
     <TailwindProvider>
    <NavigationContainer>
       <Stack.Navigator>
+      <Stack.Screen name="login" component={Login} options={{headerShown:false}} />
+      <Stack.Screen name="Home" component={ MyButtonTabs}  options={{headerShown:false, headerTitleAlign:"center",headerTitle:""}}/>
+      <Stack.Screen name="register" component={Register} options={{headerShown:false}} />
       <Stack.Screen name="splascreen" component={SplashScreen}  options={{headerShown:false}}/>
   
       <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} options={{headerShown:false}} />
-      <Stack.Screen name="login" component={Login} options={{headerShown:false}} />
-      <Stack.Screen name="Home" component={ MyButtonTabs}  options={{headerShown:false, headerTitleAlign:"center",headerTitle:""}
-       
-      }
+      
+      
+      
 
-      />
 
-      <Stack.Screen name="register" component={Register} options={{headerShown:false}} />
     
   
  
