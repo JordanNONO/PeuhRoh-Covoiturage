@@ -22,7 +22,7 @@ const Profile = () => {
   return (
     <View style={{flex:1}}>
      
-      <StatusBar backgroundColor='black'/>
+     <StatusBar backgroundColor="#48ae5d"></StatusBar>
       <Image source={{uri:'https://images.unsplash.com/photo-1678614033199-971226acb06a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80'}}
           style={{flex:0.5,
          
@@ -35,7 +35,7 @@ const Profile = () => {
       
       <View style={{flex:1,}}>
       <View style={{justifyContent:"center",alignItems:"center",zIndex:2}}>
-      <Image source={{uri:"https://images.unsplash.com/photo-1678648113407-913545723db2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"}}
+      <Image source={{uri:"https://static.vecteezy.com/ti/photos-gratuite/p2/832629-mature-african-businessman-looking-off-in-distance-photo.jpg"}}
 
         style={{height:100,width:100,borderRadius:100/2,
         borderWidth:3,

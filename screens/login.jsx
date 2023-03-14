@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet ,Image,Text,Button,TouchableOpacity} from 'react-native';
+import { View, TextInput, StyleSheet ,Image,Text,Button,TouchableOpacity,StatusBar} from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
@@ -22,6 +22,7 @@ const LoginScreen = (props) => {
   
     
     <View style={styles.container}>
+      <StatusBar backgroundColor="#48ae5d"></StatusBar>
       <View style={{}}>
      <Text style={{fontFamily:'poppin-bold',fontSize:30,paddingTop:30}}>Salut ,</Text>
       <Text style={{fontFamily:'poppin-bold',fontSize:30}}>Bon retour !</Text>
@@ -76,9 +77,11 @@ const LoginScreen = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex:1,
-
-
-    margin:30
+    flex: 1,
+ 
+    justifyContent: 'center',
+   
+    margin:20,
   },
   registerLbl: {color: '#722df0',
      fontFamily:'poppin-semibold'

@@ -1,5 +1,5 @@
 import React, { useState ,} from 'react';
-import { View, TextInput, StyleSheet ,Image,Text,Button,TouchableOpacity} from 'react-native';
+import { View, TextInput, StyleSheet ,Image,Text,Button,TouchableOpacity,StatusBar} from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
@@ -27,10 +27,14 @@ const LoginScreen = (props) => {
 
   return (
   
-    
-    <View style={styles.container}>
+
+    <View style={styles.container}>  
+
+
+
       <View style={{}}>
-     <Text style={{fontFamily:'poppin-semibold',fontSize:25,paddingBottom:40,paddingTop:20,color:COLORS.orange}}>veuillez remplire vos information pour vous inscrire</Text>
+      <StatusBar backgroundColor="#48ae5d"></StatusBar>
+     <Text style={{fontFamily:'poppin-bold',fontSize:25,paddingBottom:40,paddingTop:20,color:COLORS.orange,marginRight:40}}>veuillez remplire vos information</Text>
 
   
       </View>
@@ -92,9 +96,10 @@ const LoginScreen = (props) => {
           <TouchableOpacity style={{flexDirection:'row' ,justifyContent:'space-around',paddingTop:20}}>
           <Text  style={{fontFamily:'poppin-light'}}>vous avez deja un compte?&nbsp;&nbsp;</Text>
               <Text style={{fontFamily:'poppin-semibold',color:COLORS.orange,paddingBottom:0}}  onPress={()=>{
-    props.navigation.navigate("register");
+    props.navigation.navigate("login");
           }}>Se connecter</Text>
             </TouchableOpacity>
+    
     </View>
   );
 };
